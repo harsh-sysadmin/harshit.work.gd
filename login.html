@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Harsh IT Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .auth-container {
+            background: var(--bg-card);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+        .auth-form {
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .auth-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .form-group input.error {
+            border-color: var(--danger-color);
+            background-color: #fef2f2;
+        }
+        .form-group input.success {
+            border-color: var(--success-color);
+            background-color: #f0fdf4;
+        }
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+        }
+        .auth-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .forgot-link, .signup-link {
+            text-align: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .info-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        .info-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .auth-container {
+                grid-template-columns: 1fr;
+            }
+            .auth-info {
+                order: -1;
+                padding: 40px 20px;
+            }
+            .auth-form {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="auth-section">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2>Welcome Back!</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 30px;">Sign in to access your repair history</p>
+                
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email or Phone</label>
+                        <input type="text" name="email" id="loginEmail" placeholder="Enter email or phone number" required>
+                        <div class="error-message" id="loginEmailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" id="loginPassword" placeholder="Enter your password" required>
+                        <div class="error-message" id="loginPasswordError"></div>
+                    </div>
+                    <button type="submit" class="auth-btn" id="loginBtn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+                <a href="signup.html" class="signup-link">Don't have an account? Sign up here</a>
+            </div>
+
+            <div class="auth-info">
+                <div class="brand-logo">
+                    <i class="fas fa-microchip"></i>
+                    <span>Harsh IT Solutions</span>
+                </div>
+                <h3>Professional IT Services</h3>
+                <p>Access your customer portal to track repairs, view history, and manage your profile.</p>
+                
+                <ul class="info-features">
+                    <li><i class="fas fa-search"></i> Track repair status</li>
+                    <li><i class="fas fa-history"></i> View service history</li>
+                    <li><i class="fas fa-file-invoice"></i> Download invoices</li>
+                    <li><i class="fas fa-calendar"></i> Book new services</li>
+                    <li><i class="fas fa-user-cog"></i> Manage profile</li>
+                </ul>
+
+                <div style="margin-top: 30px;">
+                    <a href="index.html" style="color: white; text-decoration: none;">
+                        <i class="fas fa-arrow-left"></i> Back to Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePhone(phone) {
+            const phoneRegex = /^[6-9]\d{9}$/;
+            return phoneRegex.test(phone.replace(/\D/g, ''));
+        }
+
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            field.classList.add('error');
+            field.classList.remove('success');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function showSuccess(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            field.classList.add('success');
+            field.classList.remove('error');
+            errorDiv.style.display = 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const email = formData.get('email').trim();
+            const password = formData.get('password');
+            
+            let isValid = true;
+
+            if (!email) {
+                showError('loginEmail', 'Email or phone is required');
+                isValid = false;
+            } else if (!validateEmail(email) && !validatePhone(email)) {
+                showError('loginEmail', 'Enter valid email or phone number');
+                isValid = false;
+            } else {
+                showSuccess('loginEmail');
+            }
+
+            if (!password) {
+                showError('loginPassword', 'Password is required');
+                isValid = false;
+            } else if (password.length < 6) {
+                showError('loginPassword', 'Password must be at least 6 characters');
+                isValid = false;
+            } else {
+                showSuccess('loginPassword');
+            }
+
+            if (isValid) {
+                const loginBtn = document.getElementById('loginBtn');
+                loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                loginBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert('Login successful! Redirecting to portal...');
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('userEmail', email);
+                    
+                    const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                    const user = existingUsers.find(u => u.email === email || u.phone === email);
+                    if (user) {
+                        localStorage.setItem('userName', user.name);
+                        localStorage.setItem('userPhone', user.phone);
+                        localStorage.setItem('joinDate', new Date().toLocaleDateString());
+                    }
+                    
+                    window.location.href = 'portal.html';
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+</html>

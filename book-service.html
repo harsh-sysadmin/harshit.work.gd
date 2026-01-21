@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service - Harsh IT Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .book-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 0;
+        }
+        .book-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .book-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .book-header h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        .book-header p {
+            color: #6b7280;
+            font-size: 1.2rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            color: #1f2937;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .service-card p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .service-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+        .service-features i {
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+        .book-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-microchip"></i>
+                <span>Harsh IT Solutions</span>
+            </div>
+            <div>
+                <a href="portal.html" class="btn btn-secondary">Back to Portal</a>
+                <a href="index.html" class="btn btn-primary">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="book-section">
+        <div class="container">
+            <div class="book-container">
+                <div class="book-header">
+                    <h1><i class="fas fa-calendar-plus"></i> Book a Service</h1>
+                    <p>Choose from our professional IT services</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card" onclick="openBookingModal('repair')">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Computer Repair</h3>
+                        <p>Hardware diagnosis, motherboard repair, component replacement, and system troubleshooting</p>
+                        <div class="service-price">Starting ₹500</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Hardware Diagnosis</li>
+                            <li><i class="fas fa-check"></i> Motherboard Repair</li>
+                            <li><i class="fas fa-check"></i> Component Replacement</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openBookingModal('virus')">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Virus Removal</h3>
+                        <p>Complete malware removal, system cleanup, antivirus installation, and security optimization</p>
+                        <div class="service-price">Starting ₹300</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Malware Removal</li>
+                            <li><i class="fas fa-check"></i> System Cleanup</li>
+                            <li><i class="fas fa-check"></i> Security Setup</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openBookingModal('data')">
+                        <div class="service-icon">
+                            <i class="fas fa-hdd"></i>
+                        </div>
+                        <h3>Data Recovery</h3>
+                        <p>Professional data recovery from damaged drives, deleted file recovery, and backup solutions</p>
+                        <div class="service-price">Starting ₹1,500</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> HDD/SSD Recovery</li>
+                            <li><i class="fas fa-check"></i> Deleted Files</li>
+                            <li><i class="fas fa-check"></i> Backup Setup</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openBookingModal('network')">
+                        <div class="service-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>Network Setup</h3>
+                        <p>WiFi configuration, router setup, network troubleshooting, and internet connectivity solutions</p>
+                        <div class="service-price">Starting ₹800</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> WiFi Setup</li>
+                            <li><i class="fas fa-check"></i> Router Config</li>
+                            <li><i class="fas fa-check"></i> Network Security</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openBookingModal('os')">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>OS Installation</h3>
+                        <p>Fresh operating system installation, driver setup, software configuration, and system optimization</p>
+                        <div class="service-price">Starting ₹600</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> OS Installation</li>
+                            <li><i class="fas fa-check"></i> Software Setup</li>
+                            <li><i class="fas fa-check"></i> Driver Updates</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+
+                    <div class="service-card" onclick="openBookingModal('printer')">
+                        <div class="service-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h3>Printer Setup</h3>
+                        <p>Printer installation, cartridge replacement, paper jam fixes, and wireless printer configuration</p>
+                        <div class="service-price">Starting ₹350</div>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Printer Setup</li>
+                            <li><i class="fas fa-check"></i> Cartridge Fix</li>
+                            <li><i class="fas fa-check"></i> Wireless Config</li>
+                        </ul>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Book Service</h3>
+                <button class="close-btn" onclick="closeBookingModal()">&times;</button>
+            </div>
+            <form onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <input type="text" id="serviceType" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Device Type</label>
+                    <select id="deviceType" required>
+                        <option value="">Select Device</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="desktop">Desktop</option>
+                        <option value="printer">Printer</option>
+                        <option value="router">Router/Modem</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Problem Description</label>
+                    <textarea id="problemDesc" rows="4" placeholder="Describe the issue in detail..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" id="preferredDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <select id="preferredTime" required>
+                        <option value="">Select Time</option>
+                        <option value="10:00-12:00">10:00 AM - 12:00 PM</option>
+                        <option value="12:00-14:00">12:00 PM - 2:00 PM</option>
+                        <option value="14:00-16:00">2:00 PM - 4:00 PM</option>
+                        <option value="16:00-18:00">4:00 PM - 6:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" id="contactNumber" placeholder="Enter your phone number" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">
+                    <i class="fas fa-calendar-check"></i> Confirm Booking
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const serviceDetails = {
+            repair: { title: 'Computer Repair', price: '₹500' },
+            virus: { title: 'Virus Removal', price: '₹300' },
+            data: { title: 'Data Recovery', price: '₹1,500' },
+            network: { title: 'Network Setup', price: '₹800' },
+            os: { title: 'OS Installation', price: '₹600' },
+            printer: { title: 'Printer Setup', price: '₹350' }
+        };
+
+        function openBookingModal(serviceType) {
+            const modal = document.getElementById('bookingModal');
+            const service = serviceDetails[serviceType];
+            
+            document.getElementById('modalTitle').textContent = `Book ${service.title}`;
+            document.getElementById('serviceType').value = service.title;
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('preferredDate').min = today;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.display = 'none';
+        }
+
+        function submitBooking(event) {
+            event.preventDefault();
+            
+            const formData = {
+                service: document.getElementById('serviceType').value,
+                device: document.getElementById('deviceType').value,
+                problem: document.getElementById('problemDesc').value,
+                date: document.getElementById('preferredDate').value,
+                time: document.getElementById('preferredTime').value,
+                contact: document.getElementById('contactNumber').value,
+                ticketId: 'HIT' + new Date().getFullYear() + String(Math.floor(Math.random() * 1000)).padStart(3, '0'),
+                status: 'Booked',
+                bookingDate: new Date().toLocaleDateString()
+            };
+
+            // Store booking in localStorage
+            const existingBookings = JSON.parse(localStorage.getItem('userBookings') || '[]');
+            existingBookings.push(formData);
+            localStorage.setItem('userBookings', JSON.stringify(existingBookings));
+
+            // Update user stats
+            const currentServices = parseInt(localStorage.getItem('totalServices') || '0');
+            const currentActive = parseInt(localStorage.getItem('activeRepairs') || '0');
+            localStorage.setItem('totalServices', currentServices + 1);
+            localStorage.setItem('activeRepairs', currentActive + 1);
+
+            alert(`Booking confirmed! Your ticket number is: ${formData.ticketId}`);
+            closeBookingModal();
+            
+            // Redirect to portal
+            window.location.href = 'portal.html';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('bookingModal');
+            if (event.target === modal) {
+                closeBookingModal();
+            }
+        }
+    </script>
+</body>
+</html>

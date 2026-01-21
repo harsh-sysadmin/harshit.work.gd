@@ -1,0 +1,78 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.ico
+
+# Block access to sensitive files and directories
+Disallow: /.htaccess
+Disallow: /.htpasswd
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /phpmyadmin/
+Disallow: /pma/
+Disallow: /mysql/
+Disallow: /sql/
+Disallow: /database/
+Disallow: /db/
+Disallow: /backup/
+Disallow: /backups/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /logs/
+Disallow: /log/
+Disallow: /config/
+Disallow: /configuration/
+Disallow: /settings/
+Disallow: /.git/
+Disallow: /.svn/
+Disallow: /.env
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
+Disallow: /README.md
+Disallow: /LICENSE
+Disallow: /*.bak
+Disallow: /*.backup
+Disallow: /*.old
+Disallow: /*.tmp
+Disallow: /*.temp
+Disallow: /*.log
+Disallow: /*.sql
+Disallow: /*.zip
+Disallow: /*.tar
+Disallow: /*.gz
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+# Sitemap location
+Sitemap: https://harshitsolutions.com/sitemap.xml

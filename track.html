@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Repair - Harsh IT Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .track-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--bg-secondary);
+            padding: 100px 0;
+        }
+        .track-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+        .track-input {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .track-input input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+        .track-btn {
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .status-timeline {
+            display: none;
+            margin-top: 30px;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: var(--bg-secondary);
+        }
+        .timeline-item.completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .timeline-item.current {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-microchip"></i>
+                <span>Harsh IT Solutions</span>
+            </div>
+            <div>
+                <a href="index.html" class="btn btn-secondary">Home</a>
+                <a href="portal.html" class="btn btn-primary">Customer Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="track-section">
+        <div class="container">
+            <div class="track-container">
+                <h2><i class="fas fa-search"></i> Track Your Repair</h2>
+                <p>Enter your ticket number to check repair status</p>
+                
+                <div class="track-input">
+                    <input type="text" id="ticketNumber" placeholder="Enter Ticket Number (e.g., HIT2024001)">
+                    <button class="track-btn" onclick="trackRepair()">
+                        <i class="fas fa-search"></i> Track
+                    </button>
+                </div>
+
+                <div id="statusTimeline" class="status-timeline">
+                    <div id="timelineContent">
+                        <p style="text-align: center; color: #6b7280; padding: 40px;">Enter a valid ticket number to view repair status</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function trackRepair() {
+            const ticketNumber = document.getElementById('ticketNumber').value.trim();
+            const timeline = document.getElementById('statusTimeline');
+            const timelineContent = document.getElementById('timelineContent');
+            
+            if (ticketNumber.length === 0) {
+                alert('Please enter a ticket number');
+                return;
+            }
+            
+            // Search in all user bookings across all users
+            const allUsers = JSON.parse(localStorage.getItem('users') || '[]');
+            let foundBooking = null;
+            
+            // Also check current user's bookings
+            const currentUserBookings = JSON.parse(localStorage.getItem('userBookings') || '[]');
+            foundBooking = currentUserBookings.find(booking => booking.ticketId === ticketNumber);
+            
+            if (!foundBooking) {
+                // Check if there are any repair updates for this ticket
+                const repairUpdates = JSON.parse(localStorage.getItem('repairUpdates') || '{}');
+                if (repairUpdates[ticketNumber]) {
+                    foundBooking = repairUpdates[ticketNumber];
+                }
+            }
+            
+            if (foundBooking) {
+                timeline.style.display = 'block';
+                displayRepairTimeline(foundBooking, ticketNumber);
+            } else {
+                timeline.style.display = 'block';
+                timelineContent.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #ef4444;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                        <h3>Ticket Not Found</h3>
+                        <p>No repair found with ticket number: <strong>${ticketNumber}</strong></p>
+                        <p>Please check your ticket number and try again.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function displayRepairTimeline(booking, ticketId) {
+            const timelineContent = document.getElementById('timelineContent');
+            
+            // Get repair updates if any
+            const repairUpdates = JSON.parse(localStorage.getItem('repairUpdates') || '{}');
+            const updates = repairUpdates[ticketId] || {};
+            
+            let timelineHTML = `<h3>Repair Status for ${booking.service}</h3>`;
+            
+            // Default timeline based on booking status
+            const stages = [
+                { 
+                    id: 'received', 
+                    title: 'Received', 
+                    desc: `${booking.device} received and logged into system`,
+                    icon: 'fas fa-inbox',
+                    completed: true,
+                    date: booking.bookingDate || new Date().toLocaleDateString()
+                },
+                { 
+                    id: 'diagnosis', 
+                    title: 'Diagnosis', 
+                    desc: updates.diagnosis || `Analyzing ${booking.problem}`,
+                    icon: 'fas fa-search',
+                    completed: booking.status !== 'Booked',
+                    date: updates.diagnosisDate || 'In Progress'
+                },
+                { 
+                    id: 'repair', 
+                    title: 'Under Repair', 
+                    desc: updates.repairDesc || `Working on ${booking.service.toLowerCase()}`,
+                    icon: 'fas fa-tools',
+                    completed: booking.status === 'Completed',
+                    current: booking.status === 'In Progress',
+                    date: updates.repairDate || (booking.status === 'In Progress' ? 'Currently Working' : 'Pending')
+                },
+                { 
+                    id: 'testing', 
+                    title: 'Testing', 
+                    desc: updates.testingDesc || 'Quality check and performance testing',
+                    icon: 'fas fa-vial',
+                    completed: booking.status === 'Completed',
+                    date: updates.testingDate || (booking.status === 'Completed' ? 'Completed' : 'Pending')
+                },
+                { 
+                    id: 'ready', 
+                    title: 'Ready for Pickup', 
+                    desc: updates.readyDesc || 'Device ready, customer will be notified',
+                    icon: 'fas fa-phone',
+                    completed: booking.status === 'Completed',
+                    date: updates.readyDate || (booking.status === 'Completed' ? booking.completedDate || 'Ready' : 'Pending')
+                }
+            ];
+            
+            stages.forEach(stage => {
+                const statusClass = stage.completed ? 'completed' : (stage.current ? 'current' : '');
+                timelineHTML += `
+                    <div class="timeline-item ${statusClass}">
+                        <div class="timeline-icon"><i class="${stage.icon}"></i></div>
+                        <div>
+                            <h4>${stage.title}</h4>
+                            <p>${stage.desc}</p>
+                            <small>${stage.date}</small>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Add custom updates if any
+            if (updates.customUpdates && updates.customUpdates.length > 0) {
+                timelineHTML += '<h4 style="margin-top: 30px; color: #667eea;">Additional Updates</h4>';
+                updates.customUpdates.forEach(update => {
+                    timelineHTML += `
+                        <div class="timeline-item" style="background: #f0f9ff; border-left: 4px solid #667eea;">
+                            <div class="timeline-icon" style="background: #667eea;"><i class="fas fa-info"></i></div>
+                            <div>
+                                <h4>${update.title}</h4>
+                                <p>${update.description}</p>
+                                <small>${update.date}</small>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            
+            timelineContent.innerHTML = timelineHTML;
+        }
+    </script>
+</body>
+</html>

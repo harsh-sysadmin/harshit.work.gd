@@ -1,0 +1,22 @@
+Contact: mailto:security@harshitsolutions.com
+Contact: tel:+91-8287884969
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://harshitsolutions.com/security.txt
+
+# Security Policy for Harsh IT Solutions
+# 
+# We take security seriously and appreciate responsible disclosure
+# of security vulnerabilities. Please report security issues to:
+# security@harshitsolutions.com
+#
+# Please include:
+# - Description of the vulnerability
+# - Steps to reproduce
+# - Potential impact
+# - Your contact information
+#
+# We will respond within 48 hours and work with you to resolve
+# the issue promptly.
+#
+# Thank you for helping keep our customers safe!
