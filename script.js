@@ -4,15 +4,15 @@
 // ========================================
 
 // Maximum Security Protection - Complete Right-Click Blocking
-(function() {
+(function () {
     'use strict';
-    
+
     // Complete right-click and context menu blocking
-    document.addEventListener('contextmenu', function(e) {
+    document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
-        
+
         // Show normal website info instead of blocking message
         const overlay = document.createElement('div');
         overlay.style.cssText = `
@@ -30,7 +30,7 @@
             text-align: center;
             backdrop-filter: blur(10px);
         `;
-        
+
         overlay.innerHTML = `
             <div>
                 <h2 style="margin: 0 0 15px 0; font-size: 24px;">💻 Harsh IT Solutions</h2>
@@ -40,20 +40,20 @@
                 <p style="margin: 15px 0 0 0; font-size: 12px; opacity: 0.8;">Mon-Sat: 10AM-6PM</p>
             </div>
         `;
-        
+
         document.body.appendChild(overlay);
-        
+
         setTimeout(() => {
             if (overlay.parentElement) {
                 overlay.remove();
             }
         }, 3000);
-        
+
         return false;
     }, { capture: true, passive: false });
-    
+
     // Block all mouse right-click events
-    document.addEventListener('mousedown', function(e) {
+    document.addEventListener('mousedown', function (e) {
         if (e.button === 2 || e.which === 3) {
             e.preventDefault();
             e.stopPropagation();
@@ -61,8 +61,8 @@
             return false;
         }
     }, { capture: true, passive: false });
-    
-    document.addEventListener('mouseup', function(e) {
+
+    document.addEventListener('mouseup', function (e) {
         if (e.button === 2 || e.which === 3) {
             e.preventDefault();
             e.stopPropagation();
@@ -70,10 +70,10 @@
             return false;
         }
     }, { capture: true, passive: false });
-    
+
     // Block touch and hold on mobile
     let touchTimer;
-    document.addEventListener('touchstart', function(e) {
+    document.addEventListener('touchstart', function (e) {
         if (e.touches.length === 1) {
             touchTimer = setTimeout(() => {
                 e.preventDefault();
@@ -81,17 +81,17 @@
             }, 500);
         }
     }, { passive: false });
-    
-    document.addEventListener('touchend', function() {
+
+    document.addEventListener('touchend', function () {
         clearTimeout(touchTimer);
     });
-    
-    document.addEventListener('touchmove', function() {
+
+    document.addEventListener('touchmove', function () {
         clearTimeout(touchTimer);
     });
-    
+
     // Complete keyboard shortcut blocking
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         // F12 - Developer Tools
         if (e.key === 'F12' || e.keyCode === 123) {
             e.preventDefault();
@@ -100,7 +100,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+Shift+I - DevTools
         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.keyCode === 73)) {
             e.preventDefault();
@@ -109,7 +109,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+Shift+J - Console
         if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.keyCode === 74)) {
             e.preventDefault();
@@ -118,7 +118,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+U - View Source
         if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
             e.preventDefault();
@@ -127,7 +127,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+Shift+C - Element Inspector
         if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.keyCode === 67)) {
             e.preventDefault();
@@ -136,7 +136,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+Shift+K - Firefox Console
         if (e.ctrlKey && e.shiftKey && (e.key === 'K' || e.keyCode === 75)) {
             e.preventDefault();
@@ -145,7 +145,7 @@
             showWebsiteInfo();
             return false;
         }
-        
+
         // Ctrl+S - Save Page
         if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
             e.preventDefault();
@@ -153,7 +153,7 @@
             e.stopImmediatePropagation();
             return false;
         }
-        
+
         // Ctrl+A - Select All
         if (e.ctrlKey && (e.key === 'a' || e.key === 'A' || e.keyCode === 65)) {
             e.preventDefault();
@@ -161,7 +161,7 @@
             e.stopImmediatePropagation();
             return false;
         }
-        
+
         // Ctrl+P - Print
         if (e.ctrlKey && (e.key === 'p' || e.key === 'P' || e.keyCode === 80)) {
             e.preventDefault();
@@ -169,7 +169,7 @@
             e.stopImmediatePropagation();
             return false;
         }
-        
+
         // Ctrl+C - Copy
         if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.keyCode === 67) && !e.shiftKey) {
             e.preventDefault();
@@ -177,7 +177,7 @@
             e.stopImmediatePropagation();
             return false;
         }
-        
+
         // Ctrl+V - Paste
         if (e.ctrlKey && (e.key === 'v' || e.key === 'V' || e.keyCode === 86)) {
             e.preventDefault();
@@ -185,7 +185,7 @@
             e.stopImmediatePropagation();
             return false;
         }
-        
+
         // Ctrl+X - Cut
         if (e.ctrlKey && (e.key === 'x' || e.key === 'X' || e.keyCode === 88)) {
             e.preventDefault();
@@ -194,7 +194,7 @@
             return false;
         }
     }, { capture: true, passive: false });
-    
+
     function showWebsiteInfo() {
         const overlay = document.createElement('div');
         overlay.style.cssText = `
@@ -212,7 +212,7 @@
             text-align: center;
             backdrop-filter: blur(10px);
         `;
-        
+
         overlay.innerHTML = `
             <div>
                 <h2 style="margin: 0 0 15px 0; font-size: 24px;">💻 Harsh IT Solutions</h2>
@@ -222,30 +222,30 @@
                 <p style="margin: 15px 0 0 0; font-size: 12px; opacity: 0.8;">Mon-Sat: 10AM-6PM</p>
             </div>
         `;
-        
+
         document.body.appendChild(overlay);
-        
+
         setTimeout(() => {
             if (overlay.parentElement) {
                 overlay.remove();
             }
         }, 3000);
     }
-    
+
     // Disable text selection completely
-    document.addEventListener('selectstart', function(e) {
+    document.addEventListener('selectstart', function (e) {
         e.preventDefault();
         e.stopPropagation();
         return false;
     }, true);
-    
+
     // Disable drag and drop
-    document.addEventListener('dragstart', function(e) {
+    document.addEventListener('dragstart', function (e) {
         e.preventDefault();
         e.stopPropagation();
         return false;
     }, true);
-    
+
     // CSS-based selection prevention
     const style = document.createElement('style');
     style.textContent = `
@@ -262,16 +262,29 @@
 })();
 
 // Preloader
-window.addEventListener('load', () => {
+// Robust Preloader Logic
+function removePreloader() {
     const preloader = document.getElementById('preloader');
+    if (!preloader || preloader.style.display === 'none') return;
+
+    // Use a small delay for smoother transition
     setTimeout(() => {
         preloader.style.opacity = '0';
         setTimeout(() => {
             preloader.style.display = 'none';
             document.body.classList.remove('loading');
         }, 500);
-    }, 1500);
-});
+    }, 500);
+}
+
+// Initialize preloader removal
+if (document.readyState === 'complete') {
+    removePreloader();
+} else {
+    window.addEventListener('load', removePreloader);
+    // Safety fallback: Force remove after 1.5 seconds
+    setTimeout(removePreloader, 1500);
+}
 
 // Add loading class to body initially
 document.body.classList.add('loading');
@@ -280,56 +293,56 @@ document.body.classList.add('loading');
 function initMatrixAnimation() {
     const canvas = document.getElementById('matrixCanvas');
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
     const matrixArray = matrix.split("");
-    
+
     const fontSize = 10;
     const columns = canvas.width / fontSize;
     const drops = [];
     const speeds = [];
     const colors = ['#00ff41', '#00cc33', '#008f11', '#00ff88'];
-    
+
     for (let x = 0; x < columns; x++) {
         drops[x] = 1;
         speeds[x] = Math.random() * 0.5 + 0.5;
     }
-    
+
     function draw() {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
+
         ctx.font = fontSize + 'px monospace';
-        
+
         for (let i = 0; i < drops.length; i++) {
             const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-            
+
             // Random color selection for variety
             const colorIndex = Math.floor(Math.random() * colors.length);
             ctx.fillStyle = colors[colorIndex];
-            
+
             // Add glow effect
             ctx.shadowColor = colors[colorIndex];
             ctx.shadowBlur = 5;
-            
+
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            
+
             // Reset shadow
             ctx.shadowBlur = 0;
-            
+
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                 drops[i] = 0;
             }
             drops[i] += speeds[i];
         }
     }
-    
+
     setInterval(draw, 35);
-    
+
     // Update temperature display
     setInterval(() => {
         const tempElement = document.querySelector('.temp');
@@ -338,7 +351,7 @@ function initMatrixAnimation() {
             tempElement.textContent = temp + '°C';
         }
     }, 2000);
-    
+
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -664,7 +677,7 @@ function openServiceModal(service) {
     const modal = document.getElementById('serviceModal');
     const content = document.getElementById('serviceModalContent');
     const serviceData = serviceDetails[service];
-    
+
     if (serviceData) {
         content.innerHTML = `
             <h2>${serviceData.title}</h2>
@@ -684,11 +697,11 @@ function showTestimonial(index) {
     testimonials.forEach((testimonial, i) => {
         testimonial.classList.toggle('active', i === index);
     });
-    
+
     testimonialDots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
-    
+
     currentTestimonial = index;
 }
 
@@ -710,11 +723,11 @@ function toggleChat() {
 function sendMessage() {
     const message = chatInput.value.trim();
     if (!message) return;
-    
+
     // Add user message
     addMessage(message, 'user');
     chatInput.value = '';
-    
+
     // Simulate bot response
     setTimeout(() => {
         const response = getBotResponse(message);
@@ -726,7 +739,7 @@ function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
     messageDiv.innerHTML = `<p>${text}</p>`;
-    
+
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
@@ -739,24 +752,24 @@ function getBotResponse(message) {
         'virus': 'Our virus removal service starts at ₹300 and includes complete system cleanup. Is your computer running slow or showing pop-ups?',
         'price': 'Our pricing varies by service:\\n• Computer Repair: ₹500+\\n• Virus Removal: ₹300+\\n• Network Setup: ₹500+\\n• Custom PC Build: ₹25,000+\\nWhat service are you interested in?',
         'network': 'We provide WiFi setup and network troubleshooting starting from ₹500. Are you having connectivity issues?',
-        'custom': 'We build custom PCs for gaming and work starting from ₹25,000. What\\'s your budget and intended use?',
+        'custom': 'We build custom PCs for gaming and work starting from ₹25,000. What\'s your budget and intended use?',
         'gaming': 'We build amazing gaming PCs! Budget gaming PCs start from ₹35,000. What games do you want to play?',
-        'laptop': 'We repair all laptop brands including screen replacement, keyboard repair, and motherboard issues. What\\'s wrong with your laptop?',
-        'hours': 'We\\'re open Monday-Saturday 10AM-6PM, Sunday closed. Need emergency service?',
-        'location': 'We\\'re located at Gali Number 3 Near Hanuman Mandir Fanne Khan Mod North East Delhi 110093. We also offer pickup and delivery service!',
+        'laptop': 'We repair all laptop brands including screen replacement, keyboard repair, and motherboard issues. What\'s wrong with your laptop?',
+        'hours': 'We\'re open Monday- Saturday 10AM - 6PM, Sunday closed. Need emergency service?',
+        'location': 'We\'re located at Gali Number 3 Near Hanuman Mandir Fanne Khan Mod North East Delhi 110093. We also offer pickup and delivery service!',
         'whatsapp': 'You can reach us on WhatsApp at +91 8287884969 for quick support!',
         'call': 'Call us at +91 8287884969 for immediate assistance!',
         'default': 'Thanks for your message! For specific help, please call us at +91 8287884969 or book a service through our website. How else can I help you?'
     };
-    
+
     const lowerMessage = message.toLowerCase();
-    
+
     for (const [key, response] of Object.entries(responses)) {
         if (lowerMessage.includes(key)) {
             return response;
         }
     }
-    
+
     return responses.default;
 }
 
@@ -786,12 +799,64 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// Typing Animation Logic
+function initTypingAnimation() {
+    const element = document.getElementById('typing-text');
+    if (!element) return;
+
+    const phrases = [
+        "Expert motherboard repair, network setup, virus removal.",
+        "Custom PC builds for gaming and work stations.",
+        "Fast, reliable, and affordable IT services.",
+        "Your trusted partner for all computer solutions."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 60;
+
+    element.innerHTML = '';
+    element.classList.add('typing-cursor');
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            element.innerHTML = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 30; // Deleting is faster
+        } else {
+            element.innerHTML = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 60; // Typing speed
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            // Finished typing phrase, pause before deleting
+            isDeleting = true;
+            typeSpeed = 2000; // Pause at end of sentence
+        } else if (isDeleting && charIndex === 0) {
+            // Finished deleting, switch to next phrase
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typeSpeed = 500; // Pause before typing new sentence
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    type();
+}
+
+document.addEventListener('DOMContentLoaded', initTypingAnimation);
+
 // Form submissions
 function submitForm(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    
+
     // Show success message
     alert(`Thank you ${data.name}! We've received your message about ${data.service}. We'll contact you at ${data.phone} within 2 hours.`);
     event.target.reset();
@@ -801,7 +866,7 @@ function submitBooking(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    
+
     // Show booking confirmation
     alert(`Booking Confirmed! 🎉\\n\\nService: ${data.service}\\nDate: ${data.date}\\nName: ${data.name}\\nPhone: ${data.phone}\\n\\nWe'll call you to confirm the exact time. Thank you for choosing Harsh IT Solutions!`);
     closeModal('bookingModal');
@@ -851,12 +916,12 @@ scrollToTopBtn.addEventListener('click', () => {
 
 // Add loading states for buttons
 document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
         if (this.type === 'submit') {
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
             this.disabled = true;
-            
+
             setTimeout(() => {
                 this.innerHTML = originalText;
                 this.disabled = false;
@@ -873,14 +938,14 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.animationDelay = `${index * 0.1}s`;
         card.classList.add('fade-in');
     });
-    
+
     // Add stagger animation to portfolio items
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     portfolioItems.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.1}s`;
         item.classList.add('fade-in');
     });
-    
+
     // Counter animation for stats
     const statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(stat => {
@@ -896,7 +961,7 @@ function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
     const suffix = element.textContent.replace(/[0-9]/g, '');
-    
+
     function updateCounter() {
         start += increment;
         if (start < target) {
@@ -906,7 +971,7 @@ function animateCounter(element, target, duration = 2000) {
             element.textContent = target + suffix;
         }
     }
-    
+
     // Start animation when element is visible
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -916,7 +981,7 @@ function animateCounter(element, target, duration = 2000) {
             }
         });
     });
-    
+
     observer.observe(element);
 }
 
@@ -956,11 +1021,11 @@ revealElements.forEach(el => {
 
 // Add hover effects for interactive elements
 document.querySelectorAll('.service-card, .portfolio-item').forEach(element => {
-    element.addEventListener('mouseenter', function() {
+    element.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px)';
     });
-    
-    element.addEventListener('mouseleave', function() {
+
+    element.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0)';
     });
 });
@@ -980,7 +1045,7 @@ function showTypingIndicator() {
     typingDiv.innerHTML = '<p>Typing...</p>';
     chatMessages.appendChild(typingDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
-    
+
     setTimeout(() => {
         typingDiv.remove();
     }, 1000);
@@ -990,14 +1055,14 @@ function showTypingIndicator() {
 function toggleFaq(index) {
     const faqItems = document.querySelectorAll('.faq-item');
     const currentItem = faqItems[index];
-    
+
     // Close all other FAQ items
     faqItems.forEach((item, i) => {
         if (i !== index) {
             item.classList.remove('active');
         }
     });
-    
+
     // Toggle current item
     currentItem.classList.toggle('active');
 }
@@ -1008,7 +1073,7 @@ let currentLanguage = 'en';
 function toggleLanguage() {
     currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
     const langText = document.getElementById('langText');
-    
+
     if (currentLanguage === 'hi') {
         langText.textContent = 'English';
         translateToHindi();
@@ -1028,7 +1093,7 @@ function translateToHindi() {
         'Contact': 'संपर्क',
         'Professional IT Solutions & Computer Repair': 'पेशेवर आईटी समाधान और कंप्यूटर रिपेयर'
     };
-    
+
     Object.keys(translations).forEach(english => {
         const elements = document.querySelectorAll('*');
         elements.forEach(element => {
@@ -1046,3 +1111,186 @@ function translateToEnglish() {
 console.log('🚀 Harsh IT Solutions website loaded successfully!');
 console.log('📞 Contact: +91 8287884969');
 console.log('💻 Services: Computer Repair, Virus Removal, Network Setup, Custom PC Builds');
+
+// Interactive Tools Functionality
+function openTool(toolName) {
+    const toolModals = {
+        'pcBuilder': 'pcBuilderModal',
+        'diagnostic': 'diagnosticModal',
+        'calculator': 'calculatorModal'
+    };
+
+    const modalId = toolModals[toolName];
+    if (modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.classList.add('modal-open');
+        }
+    }
+}
+
+function closeTool(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+}
+
+// Tab Switching Logic
+function switchTab(tabId) {
+    // Hide all tabs
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Show selected tab
+    document.getElementById(tabId).classList.add('active');
+
+    // Activate button
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(tabId) || btn.onclick.toString().includes(tabId)) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+function switchDiagTab(tabId) {
+    document.querySelectorAll('.diag-content').forEach(content => content.classList.remove('active'));
+    document.querySelectorAll('.diagnostic-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    // Find the button that called this and activate it
+    const buttons = document.querySelectorAll('.diagnostic-tabs .tab-btn');
+    buttons.forEach(btn => {
+        if (btn.onclick.toString().includes(tabId)) btn.classList.add('active');
+    });
+}
+
+function switchCalcTab(tabId) {
+    document.querySelectorAll('.calc-content').forEach(content => content.classList.remove('active'));
+    document.querySelectorAll('.calc-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    const buttons = document.querySelectorAll('.calc-tabs .tab-btn');
+    buttons.forEach(btn => {
+        if (btn.onclick.toString().includes(tabId)) btn.classList.add('active');
+    });
+}
+
+// Mock Functions for Tool Logic
+function updateCompatibility() {
+    console.log('Updating compatibility checking...');
+    const results = document.getElementById('compatibilityResults');
+    if (results) {
+        results.innerHTML = '<div style="padding:10px; background:#e6fffa; color:#047857; border-radius:5px;"><i class="fas fa-check-circle"></i> Components are compatible!</div>';
+    }
+}
+
+function analyzeSymptoms() {
+    const btn = document.querySelector('button[onclick="analyzeSymptoms()"]');
+    if (btn) btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+
+    setTimeout(() => {
+        document.getElementById('symptoms').classList.remove('active');
+        document.getElementById('results').classList.add('active');
+        document.querySelectorAll('.diagnostic-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector('.diagnostic-tabs .tab-btn:last-child').classList.add('active');
+
+        document.getElementById('diagnosticReport').innerHTML = `
+            <div class="alert" style="background: #eff6ff; padding: 15px; border-left: 4px solid #3b82f6; margin-bottom: 20px;">
+                <h4 style="color: #1e40af; margin-bottom: 10px;">Diagnostic Analysis Complete</h4>
+                <p>Based on the selected symptoms, here are the potential issues:</p>
+            </div>
+            
+            <div class="issue-item" style="background: white; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                <h5 style="color: #ef4444; margin-bottom: 5px;"><i class="fas fa-exclamation-circle"></i> High Probability: System Overheating</h5>
+                <p>The reported symptoms suggest your cooling system might be failing or clogged with dust.</p>
+                <div style="margin-top: 10px;">
+                    <strong>Recommended Action:</strong> Professional Cleaning & Thermal Paste Replacement
+                </div>
+            </div>
+            
+             <button class="btn btn-primary" onclick="openModal('bookingModal')" style="margin-top:15px; width:100%">Book Repair</button>
+        `;
+
+        if (btn) btn.innerHTML = 'Analyze Symptoms';
+    }, 1500);
+}
+
+function runHardwareTest(type) {
+    const resultDiv = document.getElementById(`${type}-result`);
+    resultDiv.innerHTML = '<span style="color:var(--primary-color)"><i class="fas fa-spinner fa-spin"></i> Testing...</span>';
+
+    setTimeout(() => {
+        const statuses = [
+            '<span style="color: #10b981"><i class="fas fa-check-circle"></i> Passed (Healthy)</span>',
+            '<span style="color: #f59e0b"><i class="fas fa-exclamation-triangle"></i> Warning (Check Needed)</span>'
+        ];
+        // Randomly success or warning
+        const status = statuses[Math.floor(Math.random() * 1.2)];
+        resultDiv.innerHTML = status;
+    }, 2000);
+}
+
+function runSoftwareScan(type) {
+    const resultDiv = document.getElementById(`${type}-result`);
+    resultDiv.innerHTML = '<span style="color:var(--primary-color)"><i class="fas fa-spinner fa-spin"></i> Scanning...</span>';
+
+    setTimeout(() => {
+        resultDiv.innerHTML = '<span style="color: #10b981"><i class="fas fa-shield-check"></i> No Threats Found</span>';
+    }, 2000);
+}
+
+function updateDeviceOptions() {
+    // Logic to update branding based on device type could go here
+    console.log('Device options updated');
+}
+
+function generateDetailedEstimate() {
+    const breakdown = document.getElementById('costBreakdown');
+    breakdown.innerHTML = '<div style="text-align:center; padding:20px;"><i class="fas fa-spinner fa-spin fa-2x"></i><p>Calculating...</p></div>';
+
+    setTimeout(() => {
+        breakdown.innerHTML = `
+            <div class="estimate-box" style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <h4 style="border-bottom: 1px solid #cbd5e1; padding-bottom: 10px; margin-bottom: 15px;">Estimated Repair Cost</h4>
+                <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                    <span style="color: #64748b">Service Charges:</span>
+                    <span style="font-weight: 600">₹300 - ₹500</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                    <span style="color: #64748b">Parts (Estimated):</span>
+                    <span style="font-weight: 600">₹1,500 - ₹2,500</span>
+                </div>
+                <div class="total" style="border-top: 1px dashed #94a3b8; padding-top: 15px; margin-top: 10px; font-weight: bold; color: var(--primary-color); font-size: 1.2rem; display: flex; justify-content: space-between;">
+                    <span>Total Estimate:</span>
+                    <span>₹1,800 - ₹3,000</span>
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: #64748b; background: #fff; padding: 8px; border-radius: 4px;"><i class="fas fa-info-circle"></i> Final price depends on physical inspection.</p>
+            </div>
+        `;
+    }, 1000);
+}
+
+function bookFromCalculator() {
+    closeTool('calculatorModal');
+    openModal('bookingModal');
+}
+
+// PC Builder Advanced Quote
+function generateAdvancedQuote() {
+    const btn = document.querySelector('button[onclick="generateAdvancedQuote()"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+
+    setTimeout(() => {
+        alert("✅ Quote Generated Successfully!\n\nWe have saved your configuration. Please visit our shop or contact us on WhatsApp with Reference ID: PC-" + Math.floor(Math.random() * 10000) + " for the final price.");
+        btn.innerHTML = originalText;
+    }, 1500);
+}

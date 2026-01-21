@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harsh IT Solutions - Professional Computer Repair & IT Services</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader">
@@ -25,14 +28,28 @@
         </div>
     </div>
 
+    <!-- Emergency Preloader Removal Script -->
+    <script>
+        setTimeout(function () {
+            var p = document.getElementById('preloader');
+            if (p) { p.style.display = 'none'; }
+            document.body.classList.remove('loading');
+        }, 1500);
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <i class="fas fa-microchip"></i>
-                <span>Harsh IT Solutions</span>
+                <div class="logo-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">Harsh</span>
+                    <span class="brand-suffix">IT Solutions</span>
+                </div>
             </div>
-            
+
             <!-- Language Toggle -->
             <div class="language-toggle">
                 <button id="langToggle" onclick="toggleLanguage()">
@@ -40,7 +57,7 @@
                     <span id="langText">हिंदी</span>
                 </button>
             </div>
-            
+
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" data-en="Home" data-hi="होम">Home</a></li>
                 <li><a href="#about" class="nav-link" data-en="About" data-hi="हमारे बारे में">About</a></li>
@@ -103,8 +120,10 @@
                 <span>3+ Years Experience | 250+ Happy Clients</span>
             </div>
             <h1 class="hero-title">Professional IT Solutions & Computer Repair</h1>
-            <p class="hero-subtitle">Expert motherboard repair, network setup, virus removal, and custom PC builds. Fast, reliable, and affordable IT services for homes and businesses.</p>
-            
+            <p class="hero-subtitle" id="typing-text">Expert motherboard repair, network setup, virus removal, and
+                custom PC builds.
+                Fast, reliable, and affordable IT services for homes and businesses.</p>
+
             <div class="hero-features">
                 <div class="feature-item">
                     <i class="fas fa-clock"></i>
@@ -128,7 +147,7 @@
                     <i class="fas fa-phone"></i> Call: +91 8287884969
                 </a>
             </div>
-            
+
 
         </div>
     </section>
@@ -140,18 +159,20 @@
                 <h2>Our Professional Services</h2>
                 <p>Complete IT solutions for all your technology needs</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card" onclick="openServiceModal('repair')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&h=200&fit=crop" alt="Computer Repair">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=300&h=200&fit=crop"
+                            alt="Computer Repair">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-screwdriver-wrench"></i>
                         </div>
                         <h3>Computer & Laptop Repair</h3>
-                        <p>Motherboard repair, screen replacement, keyboard fix, battery replacement, and hardware diagnostics</p>
+                        <p>Motherboard repair, screen replacement, keyboard fix, battery replacement, and hardware
+                            diagnostics</p>
                         <div class="service-price">Starting ₹700</div>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Motherboard Repair</li>
@@ -163,7 +184,8 @@
 
                 <div class="service-card" onclick="openServiceModal('virus')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop" alt="Virus Removal">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=300&h=200&fit=crop"
+                            alt="Virus Removal">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
@@ -182,14 +204,16 @@
 
                 <div class="service-card" onclick="openServiceModal('network')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=200&fit=crop" alt="Network Setup">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=200&fit=crop"
+                            alt="Network Setup">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-wifi"></i>
                         </div>
                         <h3>Network Setup & WiFi</h3>
-                        <p>Router configuration, WiFi setup, network troubleshooting, and internet connectivity issues</p>
+                        <p>Router configuration, WiFi setup, network troubleshooting, and internet connectivity issues
+                        </p>
                         <div class="service-price">Starting ₹1000</div>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> WiFi Setup</li>
@@ -201,14 +225,16 @@
 
                 <div class="service-card" onclick="openServiceModal('custom')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop" alt="Custom PC Build">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop"
+                            alt="Custom PC Build">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-desktop"></i>
                         </div>
                         <h3>Custom PC Builds</h3>
-                        <p>Gaming PCs, workstations, budget builds, component selection, assembly, and performance testing</p>
+                        <p>Gaming PCs, workstations, budget builds, component selection, assembly, and performance
+                            testing</p>
                         <div class="service-price">Starting ₹25,000</div>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> Gaming PCs</li>
@@ -220,14 +246,16 @@
 
                 <div class="service-card" onclick="openServiceModal('software')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300&h=200&fit=crop" alt="Software Installation">
+                        <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=300&h=200&fit=crop"
+                            alt="Software Installation">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
                             <i class="fas fa-download"></i>
                         </div>
                         <h3>Software Installation</h3>
-                        <p>Windows installation, software setup, driver updates, system optimization, and license activation</p>
+                        <p>Windows installation, software setup, driver updates, system optimization, and license
+                            activation</p>
                         <div class="service-price">Starting ₹400</div>
                         <ul class="service-features">
                             <li><i class="fas fa-check"></i> OS Installation</li>
@@ -239,7 +267,8 @@
 
                 <div class="service-card" onclick="openServiceModal('printer')">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=300&h=200&fit=crop" alt="Printer Repair">
+                        <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=300&h=200&fit=crop"
+                            alt="Printer Repair">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
@@ -268,11 +297,16 @@
                         <h2>About Harsh IT Solutions</h2>
                         <p>Your trusted technology partner since 2021</p>
                     </div>
-                    
+
                     <div class="about-description">
-                        <p>With over 3 years of experience in the IT industry, Harsh IT Solutions has been providing reliable computer repair and IT services to homes and businesses. Our team of skilled technicians specializes in motherboard-level repairs, custom PC builds, and comprehensive IT support.</p>
-                        
-                        <p>We pride ourselves on fast turnaround times, competitive pricing, and exceptional customer service. From simple virus removal to complex hardware repairs, we handle it all with professionalism and expertise.</p>
+                        <p>With over 3 years of experience in the IT industry, Harsh IT Solutions has been providing
+                            reliable computer repair and IT services to homes and businesses. Our team of skilled
+                            technicians specializes in motherboard-level repairs, custom PC builds, and comprehensive IT
+                            support.</p>
+
+                        <p>We pride ourselves on fast turnaround times, competitive pricing, and exceptional customer
+                            service. From simple virus removal to complex hardware repairs, we handle it all with
+                            professionalism and expertise.</p>
                     </div>
 
                     <div class="stats-grid">
@@ -303,7 +337,7 @@
                             <span class="cert-badge">Custom Builds</span>
                         </div>
                     </div>
-                    
+
                     <!-- Business Achievements -->
                     <div class="professional-certs">
                         <h4>Why Choose Us</h4>
@@ -327,9 +361,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=600&fit=crop" alt="IT Professional at Work">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=600&fit=crop"
+                        alt="IT Professional at Work">
                     <div class="image-overlay">
                         <div class="play-button">
                             <i class="fas fa-play"></i>
@@ -348,10 +383,11 @@
                 <h2>Our Recent Work</h2>
                 <p>See what we've accomplished for our clients</p>
             </div>
-            
+
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop" alt="Motherboard Repair">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop"
+                        alt="Motherboard Repair">
                     <div class="portfolio-overlay">
                         <h3>Laptop Motherboard Repair</h3>
                         <p>Successfully repaired power circuit on Dell Inspiron laptop</p>
@@ -362,9 +398,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop" alt="Gaming PC Build">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop"
+                        alt="Gaming PC Build">
                     <div class="portfolio-overlay">
                         <h3>High-End Gaming PC</h3>
                         <p>Custom gaming rig with RTX 3060 and Intel i5 processor</p>
@@ -375,9 +412,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" alt="Office Network">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"
+                        alt="Office Network">
                     <div class="portfolio-overlay">
                         <h3>Office Network Setup</h3>
                         <p>Complete network infrastructure for 15-person office</p>
@@ -388,9 +426,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop" alt="Data Recovery">
+                    <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=400&h=300&fit=crop"
+                        alt="Data Recovery">
                     <div class="portfolio-overlay">
                         <h3>Critical Data Recovery</h3>
                         <p>Recovered 250GB of important business data from failed HDD</p>
@@ -401,9 +440,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop" alt="Server Setup">
+                    <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop"
+                        alt="Server Setup">
                     <div class="portfolio-overlay">
                         <h3>Server Installation</h3>
                         <p>Configured Windows Server 2019 for small business</p>
@@ -414,9 +454,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=400&h=300&fit=crop" alt="Security Setup">
+                    <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?w=400&h=300&fit=crop"
+                        alt="Security Setup">
                     <div class="portfolio-overlay">
                         <h3>Security System Setup</h3>
                         <p>Implemented comprehensive cybersecurity solution</p>
@@ -438,7 +479,7 @@
                 <h2>What Our Clients Say</h2>
                 <p>Real feedback from satisfied customers</p>
             </div>
-            
+
             <div class="testimonials-slider">
                 <div class="testimonial-item active">
                     <div class="testimonial-content">
@@ -449,7 +490,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Excellent service! My laptop motherboard was completely dead, but Harsh IT Solutions brought it back to life. Very professional and affordable pricing. Highly recommended!"</p>
+                        <p>"Excellent service! My laptop motherboard was completely dead, but Harsh IT Solutions brought
+                            it back to life. Very professional and affordable pricing. Highly recommended!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">RK</div>
                             <div class="author-info">
@@ -459,7 +501,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-item">
                     <div class="testimonial-content">
                         <div class="stars">
@@ -469,7 +511,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"They built an amazing gaming PC for me within my budget. Great performance and the setup was perfect. The team is very knowledgeable and helpful."</p>
+                        <p>"They built an amazing gaming PC for me within my budget. Great performance and the setup was
+                            perfect. The team is very knowledgeable and helpful."</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">AS</div>
                             <div class="author-info">
@@ -479,7 +522,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-item">
                     <div class="testimonial-content">
                         <div class="stars">
@@ -489,7 +532,8 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p>"Fast and reliable service. They removed all viruses from my computer and installed proper antivirus. My system is running much faster now. Thank you!"</p>
+                        <p>"Fast and reliable service. They removed all viruses from my computer and installed proper
+                            antivirus. My system is running much faster now. Thank you!"</p>
                         <div class="testimonial-author">
                             <div class="author-avatar">VP</div>
                             <div class="author-info">
@@ -500,7 +544,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="testimonial-nav">
                 <button class="nav-dot active" onclick="showTestimonial(0)"></button>
                 <button class="nav-dot" onclick="showTestimonial(1)"></button>
@@ -516,7 +560,7 @@
                 <h2>Frequently Asked Questions</h2>
                 <p>Get answers to common questions about our services</p>
             </div>
-            
+
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question" onclick="toggleFaq(0)">
@@ -524,7 +568,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Most repairs are completed within 24-48 hours. Complex motherboard repairs may take 2-3 days. We provide estimated completion time during diagnosis.</p>
+                        <p>Most repairs are completed within 24-48 hours. Complex motherboard repairs may take 2-3 days.
+                            We provide estimated completion time during diagnosis.</p>
                     </div>
                 </div>
 
@@ -534,7 +579,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We provide 30-day warranty on all repairs. If the same issue occurs within 30 days, we'll fix it free of charge.</p>
+                        <p>Yes! We provide 30-day warranty on all repairs. If the same issue occurs within 30 days,
+                            we'll fix it free of charge.</p>
                     </div>
                 </div>
 
@@ -544,7 +590,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Diagnosis is free! Repair charges start from ₹300 for software issues and ₹700 for hardware repairs. Final cost depends on the problem complexity.</p>
+                        <p>Diagnosis is free! Repair charges start from ₹300 for software issues and ₹700 for hardware
+                            repairs. Final cost depends on the problem complexity.</p>
                     </div>
                 </div>
 
@@ -554,7 +601,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, we provide home service within Delhi NCR for ₹300 extra. This includes pickup, repair, and delivery of your device.</p>
+                        <p>Yes, we provide home service within Delhi NCR for ₹300 extra. This includes pickup, repair,
+                            and delivery of your device.</p>
                     </div>
                 </div>
 
@@ -564,7 +612,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>We repair all major brands including HP, Dell, Lenovo, Asus, Acer, Apple MacBook, and custom-built PCs. No brand restrictions!</p>
+                        <p>We repair all major brands including HP, Dell, Lenovo, Asus, Acer, Apple MacBook, and
+                            custom-built PCs. No brand restrictions!</p>
                     </div>
                 </div>
 
@@ -574,7 +623,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely! We take data privacy seriously. Your files remain untouched unless you specifically request data recovery or transfer services.</p>
+                        <p>Absolutely! We take data privacy seriously. Your files remain untouched unless you
+                            specifically request data recovery or transfer services.</p>
                     </div>
                 </div>
 
@@ -584,7 +634,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! We build PCs for all budgets starting from ₹25,000. Tell us your requirements and budget, we'll suggest the best configuration.</p>
+                        <p>Yes! We build PCs for all budgets starting from ₹25,000. Tell us your requirements and
+                            budget, we'll suggest the best configuration.</p>
                     </div>
                 </div>
 
@@ -594,7 +645,8 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, we install Windows, drivers, antivirus, and essential software. We only use genuine software and provide proper licenses.</p>
+                        <p>Yes, we install Windows, drivers, antivirus, and essential software. We only use genuine
+                            software and provide proper licenses.</p>
                     </div>
                 </div>
             </div>
@@ -608,32 +660,34 @@
                 <h2>Interactive Tools</h2>
                 <p>Use our smart tools to get instant help and estimates</p>
             </div>
-            
+
             <div class="tools-grid">
                 <div class="tool-card" onclick="openTool('pcBuilder')">
                     <div class="tool-icon">
                         <i class="fas fa-desktop"></i>
                     </div>
                     <h3>PC Builder Tool</h3>
-                    <p>Build your custom PC configuration with our smart tool. Get instant compatibility check and price estimates.</p>
+                    <p>Build your custom PC configuration with our smart tool. Get instant compatibility check and price
+                        estimates.</p>
                     <div class="tool-button">
                         <span>Build PC</span>
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
-                
+
                 <div class="tool-card" onclick="openTool('diagnostic')">
                     <div class="tool-icon">
                         <i class="fas fa-stethoscope"></i>
                     </div>
                     <h3>Diagnostic Quiz</h3>
-                    <p>Answer simple questions about your computer problem and get instant diagnosis with solution suggestions.</p>
+                    <p>Answer simple questions about your computer problem and get instant diagnosis with solution
+                        suggestions.</p>
                     <div class="tool-button">
                         <span>Start Quiz</span>
                         <i class="fas fa-arrow-right"></i>
                     </div>
                 </div>
-                
+
                 <div class="tool-card" onclick="openTool('calculator')">
                     <div class="tool-icon">
                         <i class="fas fa-calculator"></i>
@@ -660,7 +714,7 @@
                     <h2>Emergency Computer Repair Service</h2>
                     <p>Computer crashed? Need urgent repair? We're here to help 24/7!</p>
                 </div>
-                
+
                 <div class="emergency-grid">
                     <div class="emergency-card">
                         <div class="card-icon">
@@ -672,7 +726,7 @@
                             <a href="tel:+918287884969">+91 8287884969</a>
                         </div>
                     </div>
-                    
+
                     <div class="emergency-card">
                         <div class="card-icon">
                             <i class="fas fa-clock"></i>
@@ -683,7 +737,7 @@
                             <i class="fas fa-shield-check"></i> Guaranteed
                         </div>
                     </div>
-                    
+
                     <div class="emergency-card">
                         <div class="card-icon">
                             <i class="fas fa-home"></i>
@@ -695,7 +749,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="emergency-pricing">
                     <h3>Emergency Service Pricing</h3>
                     <div class="pricing-grid">
@@ -717,7 +771,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="emergency-cta">
                     <div class="cta-content">
                         <h3>Need Emergency Repair Right Now?</h3>
@@ -727,7 +781,8 @@
                         <a href="tel:+918287884969" class="btn btn-emergency">
                             <i class="fas fa-phone"></i> Call Emergency: +91 8287884969
                         </a>
-                        <a href="https://wa.me/918287884969?text=Emergency%20Computer%20Repair%20Needed" class="btn btn-whatsapp-emergency">
+                        <a href="https://wa.me/918287884969?text=Emergency%20Computer%20Repair%20Needed"
+                            class="btn btn-whatsapp-emergency">
                             <i class="fab fa-whatsapp"></i> WhatsApp Emergency
                         </a>
                     </div>
@@ -743,16 +798,17 @@
                 <h2>Warranty & Guarantee Information</h2>
                 <p>Your peace of mind is our priority - comprehensive warranty coverage</p>
             </div>
-            
+
             <div class="warranty-content">
                 <div class="warranty-hero">
                     <div class="warranty-icon">
                         <i class="fas fa-shield-check"></i>
                     </div>
                     <h3>30-Day Comprehensive Warranty</h3>
-                    <p>All repairs come with our industry-leading 30-day warranty. If the same issue occurs, we fix it free!</p>
+                    <p>All repairs come with our industry-leading 30-day warranty. If the same issue occurs, we fix it
+                        free!</p>
                 </div>
-                
+
                 <div class="warranty-grid">
                     <div class="warranty-card covered">
                         <h4><i class="fas fa-check-circle"></i> What's Covered</h4>
@@ -764,7 +820,7 @@
                             <li>Pickup and delivery for warranty service</li>
                         </ul>
                     </div>
-                    
+
                     <div class="warranty-card not-covered">
                         <h4><i class="fas fa-times-circle"></i> What's Not Covered</h4>
                         <ul>
@@ -776,7 +832,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="warranty-process">
                     <h3>How to Claim Warranty</h3>
                     <div class="process-steps">
@@ -808,7 +864,7 @@
                 <h2>Tech Tips & Computer Care</h2>
                 <p>Expert advice to keep your computer running smoothly</p>
             </div>
-            
+
             <div class="tips-grid">
                 <div class="tip-card">
                     <div class="tip-icon">
@@ -824,7 +880,7 @@
                     </ul>
                     <p class="tip-action">If you notice these signs, contact us for free diagnosis!</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <div class="tip-icon">
                         <i class="fas fa-rocket"></i>
@@ -839,7 +895,7 @@
                     </ul>
                     <p class="tip-action">Need help? We offer PC optimization service for ₹500!</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <div class="tip-icon">
                         <i class="fas fa-shield-virus"></i>
@@ -854,7 +910,7 @@
                     </ul>
                     <p class="tip-action">Already infected? Our virus removal starts at ₹300!</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <div class="tip-icon">
                         <i class="fas fa-tools"></i>
@@ -869,7 +925,7 @@
                     </ul>
                     <p class="tip-action">For professional cleaning, book our service!</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <div class="tip-icon">
                         <i class="fas fa-hdd"></i>
@@ -884,7 +940,7 @@
                     </ul>
                     <p class="tip-action">We offer data recovery and HDD replacement!</p>
                 </div>
-                
+
                 <div class="tip-card">
                     <div class="tip-icon">
                         <i class="fas fa-thermometer-half"></i>
@@ -900,7 +956,7 @@
                     <p class="tip-action">Overheating issues? We fix cooling systems!</p>
                 </div>
             </div>
-            
+
             <div class="tips-cta">
                 <h3>Need Professional Help?</h3>
                 <p>Our expert technicians are here to solve any computer problem you have!</p>
@@ -918,7 +974,7 @@
                 <h2>Get In Touch</h2>
                 <p>Ready to fix your computer? Contact us today!</p>
             </div>
-            
+
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -930,7 +986,7 @@
                             <p>+91 8287884969</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -941,7 +997,7 @@
                             <p>support@harshitsolutions.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -951,7 +1007,7 @@
                             <p>Gali Number 3 Near Hanuman Mandir Fanne Khan Mod North East Delhi 110093</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
@@ -962,7 +1018,7 @@
                             <p>Sunday: Closed</p>
                         </div>
                     </div>
-                    
+
                     <div class="quick-actions">
                         <a href="https://wa.me/918287884969" class="btn btn-whatsapp">
                             <i class="fab fa-whatsapp"></i> WhatsApp
@@ -972,7 +1028,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <form class="contact-form" onsubmit="submitForm(event)">
                     <h3>Send us a Message</h3>
                     <div class="form-row">
@@ -1027,7 +1083,7 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Our Services</h3>
                     <ul>
@@ -1039,7 +1095,7 @@
                         <li><a href="#services">Printer Repair</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
@@ -1050,18 +1106,19 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <div class="footer-contact">
                         <p><i class="fas fa-phone"></i> +91 8287884969</p>
                         <p><i class="fas fa-envelope"></i> info@harshitsolutions.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Gali Number 3 Near Hanuman Mandir Fanne Khan Mod North East Delhi 110093</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Gali Number 3 Near Hanuman Mandir Fanne Khan Mod North
+                            East Delhi 110093</p>
                         <p><i class="fas fa-clock"></i> Mon-Sat: 10AM-6PM</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 Harsh IT Solutions. All rights reserved.</p>
             </div>
@@ -1157,27 +1214,35 @@
                     <button class="tab-btn" onclick="switchTab('performance')">Performance</button>
                     <button class="tab-btn" onclick="switchTab('pricing')">Pricing</button>
                 </div>
-                
+
                 <div class="tab-content active" id="components">
                     <div class="component-selector">
                         <div class="component-row">
                             <label>Processor (CPU)</label>
                             <select id="cpu" onchange="updateCompatibility()">
                                 <option value="">Select CPU</option>
-                                <option value="ryzen5-5600x" data-price="18000" data-socket="AM4">AMD Ryzen 5 5600X - ₹18,000</option>
-                                <option value="ryzen7-5700x" data-price="25000" data-socket="AM4">AMD Ryzen 7 5700X - ₹25,000</option>
-                                <option value="i5-12400f" data-price="16000" data-socket="LGA1700">Intel i5-12400F - ₹16,000</option>
-                                <option value="i7-12700f" data-price="28000" data-socket="LGA1700">Intel i7-12700F - ₹28,000</option>
+                                <option value="ryzen5-5600x" data-price="18000" data-socket="AM4">AMD Ryzen 5 5600X -
+                                    ₹18,000</option>
+                                <option value="ryzen7-5700x" data-price="25000" data-socket="AM4">AMD Ryzen 7 5700X -
+                                    ₹25,000</option>
+                                <option value="i5-12400f" data-price="16000" data-socket="LGA1700">Intel i5-12400F -
+                                    ₹16,000</option>
+                                <option value="i7-12700f" data-price="28000" data-socket="LGA1700">Intel i7-12700F -
+                                    ₹28,000</option>
                             </select>
                         </div>
                         <div class="component-row">
                             <label>Motherboard</label>
                             <select id="motherboard" onchange="updateCompatibility()">
                                 <option value="">Select Motherboard</option>
-                                <option value="b450m" data-price="8000" data-socket="AM4" data-ram="DDR4">MSI B450M PRO - ₹8,000</option>
-                                <option value="b550m" data-price="12000" data-socket="AM4" data-ram="DDR4">ASUS B550M - ₹12,000</option>
-                                <option value="b660m" data-price="10000" data-socket="LGA1700" data-ram="DDR4">MSI B660M - ₹10,000</option>
-                                <option value="z690" data-price="18000" data-socket="LGA1700" data-ram="DDR5">ASUS Z690 - ₹18,000</option>
+                                <option value="b450m" data-price="8000" data-socket="AM4" data-ram="DDR4">MSI B450M PRO
+                                    - ₹8,000</option>
+                                <option value="b550m" data-price="12000" data-socket="AM4" data-ram="DDR4">ASUS B550M -
+                                    ₹12,000</option>
+                                <option value="b660m" data-price="10000" data-socket="LGA1700" data-ram="DDR4">MSI B660M
+                                    - ₹10,000</option>
+                                <option value="z690" data-price="18000" data-socket="LGA1700" data-ram="DDR5">ASUS Z690
+                                    - ₹18,000</option>
                             </select>
                         </div>
                         <div class="component-row">
@@ -1194,10 +1259,14 @@
                             <label>Memory (RAM)</label>
                             <select id="ram" onchange="updateCompatibility()">
                                 <option value="">Select RAM</option>
-                                <option value="8gb-ddr4" data-price="3000" data-type="DDR4">8GB DDR4 3200MHz - ₹3,000</option>
-                                <option value="16gb-ddr4" data-price="6000" data-type="DDR4">16GB DDR4 3200MHz - ₹6,000</option>
-                                <option value="32gb-ddr4" data-price="12000" data-type="DDR4">32GB DDR4 3200MHz - ₹12,000</option>
-                                <option value="16gb-ddr5" data-price="8000" data-type="DDR5">16GB DDR5 5600MHz - ₹8,000</option>
+                                <option value="8gb-ddr4" data-price="3000" data-type="DDR4">8GB DDR4 3200MHz - ₹3,000
+                                </option>
+                                <option value="16gb-ddr4" data-price="6000" data-type="DDR4">16GB DDR4 3200MHz - ₹6,000
+                                </option>
+                                <option value="32gb-ddr4" data-price="12000" data-type="DDR4">32GB DDR4 3200MHz -
+                                    ₹12,000</option>
+                                <option value="16gb-ddr5" data-price="8000" data-type="DDR5">16GB DDR5 5600MHz - ₹8,000
+                                </option>
                             </select>
                         </div>
                         <div class="component-row">
@@ -1214,34 +1283,39 @@
                             <label>Power Supply</label>
                             <select id="psu" onchange="updateCompatibility()">
                                 <option value="">Select PSU</option>
-                                <option value="450w" data-price="4000" data-wattage="450">450W 80+ Bronze - ₹4,000</option>
-                                <option value="550w" data-price="6000" data-wattage="550">550W 80+ Gold - ₹6,000</option>
-                                <option value="650w" data-price="8000" data-wattage="650">650W 80+ Gold - ₹8,000</option>
-                                <option value="750w" data-price="12000" data-wattage="750">750W 80+ Gold - ₹12,000</option>
+                                <option value="450w" data-price="4000" data-wattage="450">450W 80+ Bronze - ₹4,000
+                                </option>
+                                <option value="550w" data-price="6000" data-wattage="550">550W 80+ Gold - ₹6,000
+                                </option>
+                                <option value="650w" data-price="8000" data-wattage="650">650W 80+ Gold - ₹8,000
+                                </option>
+                                <option value="750w" data-price="12000" data-wattage="750">750W 80+ Gold - ₹12,000
+                                </option>
                             </select>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="compatibility">
                     <div class="compatibility-checker">
                         <h3>Compatibility Analysis</h3>
                         <div id="compatibilityResults"></div>
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="performance">
                     <div class="performance-analyzer">
                         <h3>Performance Benchmarks</h3>
                         <div id="performanceResults"></div>
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="pricing">
                     <div class="pricing-summary">
                         <h3>Build Summary & Pricing</h3>
                         <div id="pricingResults"></div>
-                        <button class="btn btn-primary" onclick="generateAdvancedQuote()">Generate Detailed Quote</button>
+                        <button class="btn btn-primary" onclick="generateAdvancedQuote()">Generate Detailed
+                            Quote</button>
                     </div>
                 </div>
             </div>
@@ -1259,7 +1333,7 @@
                     <button class="tab-btn" onclick="switchDiagTab('software')">Software Scan</button>
                     <button class="tab-btn" onclick="switchDiagTab('results')">Results</button>
                 </div>
-                
+
                 <div class="diag-content active" id="symptoms">
                     <h3>Describe Your Computer Issues</h3>
                     <div class="symptom-checklist">
@@ -1276,7 +1350,7 @@
                     </div>
                     <button class="btn btn-primary" onclick="analyzeSymptoms()">Analyze Symptoms</button>
                 </div>
-                
+
                 <div class="diag-content" id="hardware">
                     <h3>Hardware Diagnostic Tests</h3>
                     <div class="hardware-tests">
@@ -1302,7 +1376,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="diag-content" id="software">
                     <h3>Software & Security Scan</h3>
                     <div class="software-scans">
@@ -1328,7 +1402,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="diag-content" id="results">
                     <h3>Diagnostic Report</h3>
                     <div id="diagnosticReport"></div>
@@ -1348,7 +1422,7 @@
                     <button class="tab-btn" onclick="switchCalcTab('services')">Services</button>
                     <button class="tab-btn" onclick="switchCalcTab('estimate')">Estimate</button>
                 </div>
-                
+
                 <div class="calc-content active" id="device">
                     <h3>Device Information</h3>
                     <div class="device-form">
@@ -1398,55 +1472,73 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="calc-content" id="problems">
                     <h3>Select Problems</h3>
                     <div class="problems-checklist">
                         <div class="problem-category">
                             <h4>Hardware Issues</h4>
-                            <label><input type="checkbox" value="screen-damage" data-cost="2500"> Screen damage/replacement</label>
-                            <label><input type="checkbox" value="keyboard-issues" data-cost="800"> Keyboard not working</label>
-                            <label><input type="checkbox" value="battery-issues" data-cost="1500"> Battery replacement</label>
-                            <label><input type="checkbox" value="charging-port" data-cost="1200"> Charging port repair</label>
-                            <label><input type="checkbox" value="motherboard" data-cost="3500"> Motherboard issues</label>
-                            <label><input type="checkbox" value="fan-cooling" data-cost="600"> Fan/cooling problems</label>
+                            <label><input type="checkbox" value="screen-damage" data-cost="2500"> Screen
+                                damage/replacement</label>
+                            <label><input type="checkbox" value="keyboard-issues" data-cost="800"> Keyboard not
+                                working</label>
+                            <label><input type="checkbox" value="battery-issues" data-cost="1500"> Battery
+                                replacement</label>
+                            <label><input type="checkbox" value="charging-port" data-cost="1200"> Charging port
+                                repair</label>
+                            <label><input type="checkbox" value="motherboard" data-cost="3500"> Motherboard
+                                issues</label>
+                            <label><input type="checkbox" value="fan-cooling" data-cost="600"> Fan/cooling
+                                problems</label>
                         </div>
                         <div class="problem-category">
                             <h4>Software Issues</h4>
-                            <label><input type="checkbox" value="virus-malware" data-cost="300"> Virus/malware removal</label>
-                            <label><input type="checkbox" value="os-corruption" data-cost="500"> Operating system issues</label>
+                            <label><input type="checkbox" value="virus-malware" data-cost="300"> Virus/malware
+                                removal</label>
+                            <label><input type="checkbox" value="os-corruption" data-cost="500"> Operating system
+                                issues</label>
                             <label><input type="checkbox" value="driver-issues" data-cost="200"> Driver problems</label>
-                            <label><input type="checkbox" value="software-installation" data-cost="150"> Software installation</label>
+                            <label><input type="checkbox" value="software-installation" data-cost="150"> Software
+                                installation</label>
                             <label><input type="checkbox" value="data-recovery" data-cost="1000"> Data recovery</label>
                         </div>
                         <div class="problem-category">
                             <h4>Performance Issues</h4>
-                            <label><input type="checkbox" value="slow-performance" data-cost="400"> Slow performance</label>
-                            <label><input type="checkbox" value="frequent-crashes" data-cost="600"> Frequent crashes</label>
-                            <label><input type="checkbox" value="boot-issues" data-cost="500"> Boot/startup problems</label>
-                            <label><input type="checkbox" value="overheating" data-cost="700"> Overheating issues</label>
+                            <label><input type="checkbox" value="slow-performance" data-cost="400"> Slow
+                                performance</label>
+                            <label><input type="checkbox" value="frequent-crashes" data-cost="600"> Frequent
+                                crashes</label>
+                            <label><input type="checkbox" value="boot-issues" data-cost="500"> Boot/startup
+                                problems</label>
+                            <label><input type="checkbox" value="overheating" data-cost="700"> Overheating
+                                issues</label>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="calc-content" id="services">
                     <h3>Additional Services</h3>
                     <div class="services-options">
-                        <label><input type="checkbox" value="home-service" data-cost="300"> Home pickup & delivery</label>
+                        <label><input type="checkbox" value="home-service" data-cost="300"> Home pickup &
+                            delivery</label>
                         <label><input type="checkbox" value="same-day" data-cost="500"> Same day service</label>
                         <label><input type="checkbox" value="data-backup" data-cost="200"> Data backup service</label>
                         <label><input type="checkbox" value="optimization" data-cost="300"> System optimization</label>
                         <label><input type="checkbox" value="antivirus-setup" data-cost="150"> Antivirus setup</label>
-                        <label><input type="checkbox" value="extended-warranty" data-cost="800"> Extended warranty (6 months)</label>
+                        <label><input type="checkbox" value="extended-warranty" data-cost="800"> Extended warranty (6
+                            months)</label>
                     </div>
                     <div class="urgency-selector">
                         <h4>Service Urgency</h4>
-                        <label><input type="radio" name="urgency" value="normal" checked> Normal (2-3 days) - No extra cost</label>
-                        <label><input type="radio" name="urgency" value="priority"> Priority (24 hours) - +25% cost</label>
-                        <label><input type="radio" name="urgency" value="emergency"> Emergency (Same day) - +50% cost</label>
+                        <label><input type="radio" name="urgency" value="normal" checked> Normal (2-3 days) - No extra
+                            cost</label>
+                        <label><input type="radio" name="urgency" value="priority"> Priority (24 hours) - +25%
+                            cost</label>
+                        <label><input type="radio" name="urgency" value="emergency"> Emergency (Same day) - +50%
+                            cost</label>
                     </div>
                 </div>
-                
+
                 <div class="calc-content" id="estimate">
                     <h3>Repair Cost Estimate</h3>
                     <div id="costBreakdown"></div>
@@ -1461,4 +1553,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
