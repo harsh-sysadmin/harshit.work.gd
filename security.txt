@@ -1,4 +1,4 @@
-Contact: mailto:security@harshitsolutions.com
+Contact: mailto:info@harshit.site
 Contact: tel:+91-8287884969
 Expires: 2025-12-31T23:59:59.000Z
 Preferred-Languages: en, hi
@@ -8,7 +8,7 @@ Canonical: https://harshitsolutions.com/security.txt
 # 
 # We take security seriously and appreciate responsible disclosure
 # of security vulnerabilities. Please report security issues to:
-# security@harshitsolutions.com
+# info@harshit.site
 #
 # Please include:
 # - Description of the vulnerability

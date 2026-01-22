@@ -126,7 +126,7 @@ Update contact details in `index.html`:
 <a href="tel:+1234567890">+1 (555) 123-4567</a>
 
 <!-- Email addresses -->
-<a href="mailto:info@harshitsolutions.com">info@harshitsolutions.com</a>
+<a href="mailto:info@harshit.site">info@harshit.site</a>
 
 <!-- WhatsApp link -->
 <a href="https://wa.me/15551234567">WhatsApp</a>
@@ -205,7 +205,7 @@ The website includes:
 
 For customization help or technical support:
 
-- Email: support@harshitsolutions.com
+- Email: info@harshit.site
 - Phone: +1 (555) 123-4567
 
 ## 📄 License
