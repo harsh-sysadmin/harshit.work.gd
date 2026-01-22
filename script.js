@@ -464,7 +464,7 @@ const serviceDetails = {
                     <p>✅ Free pickup and delivery in local area</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Book Repair Now</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Book Repair Now</button>
             </div>
         `
     },
@@ -503,7 +503,7 @@ const serviceDetails = {
                     <p><strong>Complete Security Setup:</strong> ₹800</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Get Protected Now</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Get Protected Now</button>
             </div>
         `
     },
@@ -542,7 +542,7 @@ const serviceDetails = {
                     <p><strong>Complete Office Setup:</strong> ₹2,000+</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Setup Network</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Setup Network</button>
             </div>
         `
     },
@@ -582,7 +582,7 @@ const serviceDetails = {
                     <p><strong>Assembly Service:</strong> ₹2,000 - ₹5,000</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Build My PC</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Build My PC</button>
             </div>
         `
     },
@@ -627,7 +627,7 @@ const serviceDetails = {
                     <p><strong>Complete Setup:</strong> ₹1,500</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Setup Software</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Setup Software</button>
             </div>
         `
     },
@@ -666,7 +666,7 @@ const serviceDetails = {
                     <p><strong>Cartridge Replacement:</strong> ₹200</p>
                 </div>
                 
-                <button class="btn btn-primary" onclick="openModal('bookingModal')">Fix Printer</button>
+                <button class="btn btn-primary" onclick="window.location.href='signup.html'">Fix Printer</button>
             </div>
         `
     }

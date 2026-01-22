@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,10 +16,11 @@
             justify-content: center;
             padding: 20px;
         }
+
         .auth-container {
             background: var(--bg-card);
             border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             width: 100%;
             max-width: 900px;
@@ -26,12 +28,14 @@
             grid-template-columns: 1fr 1fr;
             min-height: 600px;
         }
+
         .auth-form {
             padding: 60px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .auth-info {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -41,15 +45,18 @@
             justify-content: center;
             text-align: center;
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: var(--text-primary);
         }
+
         .form-group input {
             width: 100%;
             padding: 15px;
@@ -58,31 +65,46 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
+
         .form-group input:focus {
             outline: none;
             border-color: var(--primary-color);
         }
+
         .form-group input.error {
             border-color: var(--danger-color);
             background-color: #fef2f2;
         }
+
         .form-group input.success {
             border-color: var(--success-color);
             background-color: #f0fdf4;
         }
+
         .error-message {
             color: var(--danger-color);
             font-size: 0.8rem;
             margin-top: 5px;
             display: none;
         }
+
         .password-strength {
             margin-top: 5px;
             font-size: 0.8rem;
         }
-        .strength-weak { color: #ef4444; }
-        .strength-medium { color: #f59e0b; }
-        .strength-strong { color: #10b981; }
+
+        .strength-weak {
+            color: #ef4444;
+        }
+
+        .strength-medium {
+            color: #f59e0b;
+        }
+
+        .strength-strong {
+            color: #10b981;
+        }
+
         .auth-btn {
             width: 100%;
             padding: 15px;
@@ -96,16 +118,19 @@
             transition: all 0.3s ease;
             margin-bottom: 20px;
         }
+
         .auth-btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
         }
+
         .login-link {
             text-align: center;
             color: var(--primary-color);
             text-decoration: none;
             font-size: 0.9rem;
         }
+
         .brand-logo {
             display: flex;
             align-items: center;
@@ -115,10 +140,12 @@
             font-weight: 700;
             margin-bottom: 20px;
         }
+
         .info-features {
             list-style: none;
             margin: 30px 0;
         }
+
         .info-features li {
             display: flex;
             align-items: center;
@@ -126,27 +153,45 @@
             margin-bottom: 15px;
             font-size: 1.1rem;
         }
+
         @media (max-width: 768px) {
+            .auth-section {
+                padding: 10px;
+                align-items: flex-start;
+                /* Better for scrolling on small screens */
+            }
+
             .auth-container {
                 grid-template-columns: 1fr;
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
+
             .auth-info {
-                order: -1;
-                padding: 40px 20px;
+                /* order: -1; Removed to keep form at top */
+                padding: 30px 20px;
+                border-radius: 0 0 20px 20px;
             }
+
             .auth-form {
-                padding: 40px 20px;
+                padding: 30px 20px;
+                border-radius: 20px 20px 0 0;
+            }
+
+            .brand-logo {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
+
 <body>
     <section class="auth-section">
         <div class="auth-container">
             <div class="auth-form">
                 <h2>Create Account</h2>
                 <p style="color: var(--text-secondary); margin-bottom: 30px;">Join us to track your repairs</p>
-                
+
                 <form onsubmit="handleRegister(event)">
                     <div class="form-group">
                         <label>Full Name</label>
@@ -165,7 +210,8 @@
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" name="password" id="regPassword" placeholder="Create a password" required>
+                        <input type="password" name="password" id="regPassword" placeholder="Create a password"
+                            required>
                         <div class="password-strength" id="passwordStrength"></div>
                         <div class="error-message" id="regPasswordError"></div>
                     </div>
@@ -183,7 +229,7 @@
                 </div>
                 <h3>Professional IT Services</h3>
                 <p>Create your account to access our customer portal and track your repairs.</p>
-                
+
                 <ul class="info-features">
                     <li><i class="fas fa-search"></i> Track repair status</li>
                     <li><i class="fas fa-history"></i> View service history</li>
@@ -263,7 +309,7 @@
         }
 
         // Real-time validation
-        document.getElementById('regName').addEventListener('input', function() {
+        document.getElementById('regName').addEventListener('input', function () {
             const name = this.value;
             if (name.length === 0) {
                 clearValidation('regName');
@@ -274,7 +320,7 @@
             }
         });
 
-        document.getElementById('regPhone').addEventListener('input', function() {
+        document.getElementById('regPhone').addEventListener('input', function () {
             const phone = this.value;
             if (phone.length === 0) {
                 clearValidation('regPhone');
@@ -285,7 +331,7 @@
             }
         });
 
-        document.getElementById('regEmail').addEventListener('input', function() {
+        document.getElementById('regEmail').addEventListener('input', function () {
             const email = this.value;
             if (email.length === 0) {
                 clearValidation('regEmail');
@@ -296,10 +342,10 @@
             }
         });
 
-        document.getElementById('regPassword').addEventListener('input', function() {
+        document.getElementById('regPassword').addEventListener('input', function () {
             const password = this.value;
             const strengthDiv = document.getElementById('passwordStrength');
-            
+
             if (password.length === 0) {
                 clearValidation('regPassword');
                 strengthDiv.textContent = '';
@@ -307,7 +353,7 @@
             }
 
             const { strength, feedback } = checkPasswordStrength(password);
-            
+
             if (strength < 3) {
                 strengthDiv.textContent = `Weak password. Need: ${feedback.join(', ')}`;
                 strengthDiv.className = 'password-strength strength-weak';
@@ -330,7 +376,7 @@
             const phone = formData.get('phone').trim();
             const email = formData.get('email').trim();
             const password = formData.get('password');
-            
+
             let isValid = true;
 
             if (!validateName(name)) {
@@ -368,7 +414,7 @@
                 setTimeout(() => {
                     existingUsers.push({ name, phone, email, password });
                     localStorage.setItem('users', JSON.stringify(existingUsers));
-                    
+
                     alert('Account created successfully! Redirecting to login...');
                     window.location.href = 'login.html';
                 }, 1500);
@@ -376,4 +422,5 @@
         }
     </script>
 </body>
+
 </html>
