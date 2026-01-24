@@ -5853,3 +5853,356 @@ body {
         gap: 15px;
     }
 }
+/* Enhanced Testimonials with Photos */
+.customer-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    position: relative;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.customer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 25px;
+    height: 25px;
+    background: var(--success-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    border: 2px solid white;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.testimonial-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--bg-card);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.testimonial-stats .stat-item {
+    text-align: center;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.testimonial-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.testimonial-stats .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Before/After Portfolio Enhancement */
+.before-after {
+    position: relative;
+    overflow: hidden;
+}
+
+.before-after-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.before-image,
+.after-image {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.before-image {
+    left: 0;
+    border-right: 2px solid white;
+}
+
+.after-image {
+    right: 0;
+    border-left: 2px solid white;
+}
+
+.before-image img,
+.after-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.image-label {
+    position: absolute;
+    top: 10px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.image-label.before {
+    left: 10px;
+    background: var(--danger-color);
+    color: white;
+}
+
+.image-label.after {
+    right: 10px;
+    background: var(--success-color);
+    color: white;
+}
+
+.repair-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.repair-details .cost {
+    background: var(--success-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.repair-details .time {
+    background: var(--primary-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.success-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 20px;
+    color: white;
+}
+
+.metric-item {
+    text-align: center;
+    flex: 1;
+}
+
+.metric-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 1.5rem;
+}
+
+.metric-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Mobile Responsive for Enhanced Features */
+@media screen and (max-width: 767px) {
+    .customer-photo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .testimonial-stats {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .testimonial-stats .stat-number {
+        font-size: 2rem;
+    }
+    
+    .before-after-container {
+        height: 200px;
+    }
+    
+    .success-metrics {
+        flex-direction: column;
+        gap: 25px;
+        padding: 30px 20px;
+    }
+    
+    .metric-number {
+        font-size: 2rem;
+    }
+    
+    .repair-details {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .testimonial-stats {
+        gap: 30px;
+    }
+    
+    .success-metrics {
+        gap: 30px;
+    }
+}
+
+/* Hover Effects for Enhanced Elements */
+.customer-photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+.before-after:hover .before-image img {
+    transform: scale(1.05);
+}
+
+.before-after:hover .after-image img {
+    transform: scale(1.05);
+}
+
+.metric-item:hover {
+    transform: translateY(-5px);
+}
+
+.metric-item:hover .metric-icon {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+/* Animation for Before/After Reveal */
+@keyframes beforeAfterReveal {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.before-after:hover .after-image {
+    animation: beforeAfterReveal 0.8s ease-in-out;
+}
+
+/* Enhanced Portfolio Tags */
+.portfolio-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.portfolio-tags span {
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Testimonial Navigation Enhancement */
+.testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.nav-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.3);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+.nav-dot:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Loading Animation for Images */
+.image-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
