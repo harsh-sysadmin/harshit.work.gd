@@ -1,0 +1,281 @@
+/* Professional Logo Design */
+
+/* Navigation Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chip-design {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    border-radius: 6px;
+    border: 2px solid #10b981;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.chip-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: #10b981;
+    border-radius: 2px;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
+}
+
+.chip-pins {
+    position: absolute;
+}
+
+.chip-pins::before,
+.chip-pins::after {
+    content: '';
+    position: absolute;
+    background: #64748b;
+}
+
+.chip-pins::before {
+    top: -4px;
+    left: 6px;
+    width: 4px;
+    height: 8px;
+    box-shadow: 8px 0 0 #64748b, 16px 0 0 #64748b;
+}
+
+.chip-pins::after {
+    bottom: -4px;
+    left: 6px;
+    width: 4px;
+    height: 8px;
+    box-shadow: 8px 0 0 #64748b, 16px 0 0 #64748b;
+}
+
+.logo-accent {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+    color: #fbbf24;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e3a8a;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(30, 58, 138, 0.3);
+}
+
+.brand-suffix {
+    font-size: 12px;
+    font-weight: 600;
+    color: #10b981;
+    letter-spacing: 2px;
+    display: block;
+    margin-top: -2px;
+}
+
+.brand-tagline {
+    font-size: 8px;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+/* Preloader Logo */
+.preloader-logo {
+    margin-bottom: 20px;
+}
+
+.logo-chip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.chip-body {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6, #10b981);
+    border-radius: 12px;
+    border: 3px solid #10b981;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+    animation: chipGlow 3s ease-in-out infinite;
+}
+
+@keyframes chipGlow {
+    0%, 100% { 
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+.chip-circuit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #10b981;
+    border-radius: 4px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.chip-circuit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    background: #fbbf24;
+    border-radius: 2px;
+    animation: circuitPulse 2s ease-in-out infinite;
+}
+
+@keyframes circuitPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.chip-pins-left,
+.chip-pins-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 40px;
+    background: linear-gradient(180deg, #64748b, #94a3b8);
+}
+
+.chip-pins-left {
+    left: -8px;
+    border-radius: 4px 0 0 4px;
+}
+
+.chip-pins-right {
+    right: -8px;
+    border-radius: 0 4px 4px 0;
+}
+
+.chip-pins-left::before,
+.chip-pins-right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #374151;
+    top: 8px;
+    box-shadow: 0 6px 0 #374151, 0 12px 0 #374151, 0 18px 0 #374151, 0 24px 0 #374151;
+}
+
+.chip-power {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 16px;
+    color: #fbbf24;
+    animation: powerBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes powerBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.brand-text {
+    text-align: center;
+}
+
+.brand-text .brand-name {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    margin-bottom: 5px;
+}
+
+.brand-text .brand-suffix {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #10b981;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+/* Logo Hover Effects */
+.nav-logo:hover .chip-design {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+}
+
+.nav-logo:hover .logo-accent {
+    animation-duration: 0.5s;
+}
+
+.nav-logo:hover .brand-name {
+    color: #3b82f6;
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+    .logo-container {
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .chip-design {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .brand-name {
+        font-size: 20px;
+    }
+    
+    .brand-suffix {
+        font-size: 10px;
+    }
+    
+    .brand-tagline {
+        display: none;
+    }
+}
